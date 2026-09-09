@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap');
+
+:root{
+  --bg: #1c1c1c;
+  --bg-panel: #262626;
+  --ink: #f2f2f2;
+  --ink-dim: #c9c9c9;
+  --blue: #0d6793;
+  --red: #bc2e2e;
+  --silver: #f6f6f6;
+  --gold: #f2bc51;
+  --rule: #3a3a3a;
+  --max-w: 760px;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  line-height: 1.65;
+}
+
+/* ---------- Table of contents nav ---------- */
+.toc-nav{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(28,28,28,0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 1rem;
+}
+.toc-toggle{
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--gold);
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.toc-toggle:hover{ border-color: var(--gold); }
+.toc-list{
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.toc-list.open{ max-height: 480px; }
+.toc-list li{ border-top: 1px solid var(--rule); }
+.toc-list a{
+  display: block;
+  padding: 0.6rem 0.2rem;
+  color: var(--ink-dim);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.toc-list a:hover{ color: var(--gold); }
+
+/* ---------- Layout ---------- */
+.doc{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+}
+
+.hero-emblem{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.hero-emblem img{
+  width: 160px;
+  height: auto;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.5));
+}
+
+.doc-header{ text-align: center; margin-bottom: 1.5rem; }
+.doc-title{
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 8vw, 3.4rem);
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--silver);
+}
+.doc-subtitle{
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  letter-spacing: 0.08em;
+  margin: 0.25rem 0 0;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.preamble{
+  font-style: italic;
+  text-align: center;
+  color: var(--ink-dim);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.4rem 0.5rem;
+  margin: 2rem 0 3rem;
+  font-size: 1.05rem;
+}
+
+/* ---------- Chapters ---------- */
+.chapter{
+  margin-top: 3.5rem;
+  padding-top: 0.5rem;
+}
+.chapter > h1{
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  color: var(--silver);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+.chapter-num{
+  color: var(--gold);
+  font-weight: 700;
+}
+.chapter-title{ color: var(--silver); }
+
+/* ---------- Members (articles) ---------- */
+.member{
+  margin-bottom: 1.8rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--blue);
+}
+.member h2{
+  font-size: 1.05rem;
+  font-family: 'Source Serif 4', serif;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  color: var(--gold);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.member-num{
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.member-title{
+  color: var(--ink);
+  font-weight: 600;
+}
+.member p{
+  margin: 0.4rem 0;
+  color: var(--ink-dim);
+}
+.member-list{
+  margin: 0.5rem 0 0.2rem;
+  padding-left: 1.2rem;
+  color: var(--ink-dim);
+}
+.member-list li{ margin: 0.25rem 0; }
+
+/* ---------- Images ---------- */
+.doc-image{
+  margin: 1rem 0;
+  text-align: center;
+}
+.doc-image img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* ---------- Color swatches (Član 2.5) ---------- */
+.swatches{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0.8rem 0 0;
+}
+.swatches li{
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+}
+.swatches li::before{
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--sw);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: inline-block;
+}
+
+/* ---------- Footer ---------- */
+.doc-footer{
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-dim);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px){
+  .toc-nav{ padding: 0.8rem 2rem; }
+}
